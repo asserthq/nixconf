@@ -8,11 +8,15 @@
           (lib.getExe self'.packages.noctalia)
         ];
       
-        input.keyboard.xkb.layout = "us, ru";
+        input = {
+          keyboard.xkb.layout = "us, ru";
 
-        input.touchpad = {
-          natural-scroll = {};
-          tap = {};
+          touchpad = {
+            natural-scroll = {};
+            tap = {};
+          };
+
+          focus-follows-mouse = {};
         };
         
         layout = {
@@ -33,6 +37,24 @@
           };
         };
 
+        
+        workspaces = let
+          settings = {
+            layout.gaps = 5;
+          };
+        in {
+          "w0" = settings;
+          "w1" = settings;
+          "w2" = settings;
+          "w3" = settings;
+          "w4" = settings;
+          "w5" = settings;
+          "w6" = settings;
+          "w7" = settings;
+          "w8" = settings;
+          "w9" = settings;
+        };
+      
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       
         binds = {
@@ -66,15 +88,16 @@
           "Mod+Period".expel-window-from-column = {};
           "Mod+R".switch-preset-column-width = {};         
           
-          "Mod+1".focus-workspace = 1;
-          "Mod+2".focus-workspace = 2;
-          "Mod+3".focus-workspace = 3;
-          "Mod+4".focus-workspace = 4;
-          "Mod+5".focus-workspace = 5;
-          "Mod+6".focus-workspace = 6;
-          "Mod+7".focus-workspace = 7;
-          "Mod+8".focus-workspace = 8;
-          "Mod+9".focus-workspace = 9;
+          "Mod+1".focus-workspace = "w0";
+          "Mod+2".focus-workspace = "w1";
+          "Mod+3".focus-workspace = "w2";
+          "Mod+4".focus-workspace = "w3";
+          "Mod+5".focus-workspace = "w4";
+          "Mod+6".focus-workspace = "w5";
+          "Mod+7".focus-workspace = "w6";
+          "Mod+8".focus-workspace = "w7";
+          "Mod+9".focus-workspace = "w8";
+          "Mod+0".focus-workspace = "w9";
           
           "Mod+Shift+H".move-column-left = {};
           "Mod+Shift+L".move-column-right = {};
@@ -86,15 +109,16 @@
           "Mod+Shift+U".move-column-to-workspace-down = {};
           "Mod+Shift+I".move-column-to-workspace-up = {};       
 
-          "Mod+Shift+1".move-column-to-workspace = 1;
-          "Mod+Shift+2".move-column-to-workspace = 2;
-          "Mod+Shift+3".move-column-to-workspace = 3;
-          "Mod+Shift+4".move-column-to-workspace = 4;
-          "Mod+Shift+5".move-column-to-workspace = 5;
-          "Mod+Shift+6".move-column-to-workspace = 6;
-          "Mod+Shift+7".move-column-to-workspace = 7;
-          "Mod+Shift+8".move-column-to-workspace = 8;
-          "Mod+Shift+9".move-column-to-workspace = 9;
+          "Mod+Shift+1".move-column-to-workspace = "w0";
+          "Mod+Shift+2".move-column-to-workspace = "w1";
+          "Mod+Shift+3".move-column-to-workspace = "w2";
+          "Mod+Shift+4".move-column-to-workspace = "w3";
+          "Mod+Shift+5".move-column-to-workspace = "w4";
+          "Mod+Shift+6".move-column-to-workspace = "w5";
+          "Mod+Shift+7".move-column-to-workspace = "w6";
+          "Mod+Shift+8".move-column-to-workspace = "w7";
+          "Mod+Shift+9".move-column-to-workspace = "w8";
+          "Mod+Shift+0".move-column-to-workspace = "w9";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
           "Mod+Ctrl+L".set-column-width = "+5%";
