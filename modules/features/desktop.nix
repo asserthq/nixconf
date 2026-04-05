@@ -21,6 +21,7 @@
       pkgs.pcmanfm
       selfpkgs.noctalia
       pkgs.brave
+      pkgs.wl-clipboard-rs
     ];
 
     fonts.packages = with pkgs; [
