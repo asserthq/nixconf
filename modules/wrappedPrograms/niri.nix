@@ -9,8 +9,11 @@
         ];
       
         input = {
-          keyboard.xkb.layout = "us, ru";
-
+          keyboard.xkb = {
+            layout = "us, ru";
+            options = "grp:alt_shift_toggle,caps:escape";
+          };
+        
           touchpad = {
             natural-scroll = {};
             tap = {};
@@ -62,8 +65,9 @@
           
           "Mod+Q".close-window = {};
           "Mod+F".maximize-column = {};
-          "Mod+G".fullscreen-window = {};
-          "Mod+Shift+F".toggle-window-floating = {};
+          "Mod+Shift+F".fullscreen-window = {};
+          "Mod+V".toggle-window-floating = {};
+          "Mod+Shift+V".switch-focus-between-floating-and-tiling = {};
           "Mod+C".center-column = {};          
 
           "Mod+Tab".toggle-overview = {};
