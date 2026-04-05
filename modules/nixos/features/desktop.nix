@@ -5,14 +5,11 @@
     selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [
+      self.nixosModules.niri
       self.nixosModules.gtk
       self.nixosModules.wallpaper
-
       self.nixosModules.pipewire
     ];
-
-    programs.niri.enable = true;
-    programs.niri.package = selfpkgs.niri;
 
     preferences.autostart = [selfpkgs.noctalia];
 
